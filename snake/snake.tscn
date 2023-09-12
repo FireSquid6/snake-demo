@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://c74bt1ql7ae2v"]
+
+[ext_resource type="Script" path="res://snake/snake.gd" id="1_dpodd"]
+[ext_resource type="PackedScene" uid="uid://cjnn8orxv603k" path="res://snake_part/snake_part.tscn" id="2_14t0m"]
+
+[node name="snake" type="Node2D"]
+position = Vector2(512, 128)
+script = ExtResource("1_dpodd")
+
+[node name="head" parent="." instance=ExtResource("2_14t0m")]
+
+[node name="Polygon2D" parent="head" index="1"]
+color = Color(0.85098, 0.486275, 0, 1)
+
+[node name="snake_part2" parent="." instance=ExtResource("2_14t0m")]
+position = Vector2(64, 0)
+
+[node name="snake_part3" parent="." instance=ExtResource("2_14t0m")]
+position = Vector2(128, 0)
+
+[connection signal="at_point" from="head" to="." method="_on_head_at_point"]
+
+[editable path="head"]

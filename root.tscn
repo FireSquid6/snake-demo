@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ygvhq46hc4o8"]
+
+[ext_resource type="PackedScene" uid="uid://c74bt1ql7ae2v" path="res://snake/snake.tscn" id="1_gl28g"]
+
+[node name="Root" type="Node2D"]
+
+[node name="snake" parent="." instance=ExtResource("1_gl28g")]
+position = Vector2(448, 192)
