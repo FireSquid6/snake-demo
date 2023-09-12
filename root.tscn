@@ -1,8 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://ygvhq46hc4o8"]
+[gd_scene load_steps=3 format=3 uid="uid://ygvhq46hc4o8"]
 
 [ext_resource type="PackedScene" uid="uid://c74bt1ql7ae2v" path="res://snake/snake.tscn" id="1_gl28g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uxne"]
+size = Vector2(128, 384)
 
 [node name="Root" type="Node2D"]
 
 [node name="snake" parent="." instance=ExtResource("1_gl28g")]
 position = Vector2(448, 192)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(832, 256)
+shape = SubResource("RectangleShape2D_8uxne")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(768, 64, 768, 448, 896, 448, 896, 64)

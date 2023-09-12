@@ -10,6 +10,8 @@ var head: SnakePart
 var move_dir = Vector2(-1, 0)
 var _last_move_dir = Vector2(-1, 0)
 
+@onready var _mouth: Area2D = get_node("head/Mouth")
+
 func _ready() -> void:
 	for child in get_children():
 		_parts.append(child)
@@ -26,7 +28,6 @@ func _process(_delta: float) -> void:
 	
 	if up + left + down + right > 0:
 		move_dir = Vector2(right - left, down - up)
-		print(move_dir)
 
 
 func _on_head_at_point() -> void:
@@ -47,7 +48,25 @@ func _move() -> void:
 	_last_move_dir = move_dir
 	head.goto(head.position + (move_dir * 64))
 	
+	_mouth.rotation = move_dir.angle()
+	
 	for i in range(1, len(_parts)):
 		var part := _parts[i]
 		var ahead := _parts[i - 1]
 		part.goto(ahead.position)
+
+
+func _on_mouth_area_entered(area):
+	_mouth_collided(area)
+
+
+func _on_mouth_body_entered(body):
+	_mouth_collided(body)
+
+
+func _mouth_collided(node: Node2D):  # Godot desperately needs type unions
+	print("I collieded with something")
+	
+	# check if it's a number fruit
+	
+	# if it isn't a number fruit, die
