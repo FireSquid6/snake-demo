@@ -2,7 +2,7 @@ extends Area2D
 class_name SnakePart
 
 
-@export var speed: float = 128  # px / s 
+@export var speed: float = 512  # px / s 
 var _next_pos: Vector2 = Vector2(0, 0)
 signal collided
 signal at_point
