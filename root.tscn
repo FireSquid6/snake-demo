@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ygvhq46hc4o8"]
+[gd_scene load_steps=4 format=3 uid="uid://ygvhq46hc4o8"]
 
 [ext_resource type="PackedScene" uid="uid://c74bt1ql7ae2v" path="res://snake/snake.tscn" id="1_gl28g"]
+[ext_resource type="PackedScene" uid="uid://co5xgmh7un5ry" path="res://fruit/fruit.tscn" id="2_2yqd1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8uxne"]
 size = Vector2(128, 384)
@@ -20,3 +21,21 @@ shape = SubResource("RectangleShape2D_8uxne")
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
 color = Color(1, 0, 0, 1)
 polygon = PackedVector2Array(768, 64, 768, 448, 896, 448, 896, 64)
+
+[node name="Fruit" parent="." instance=ExtResource("2_2yqd1")]
+position = Vector2(128, 320)
+
+[node name="Fruit2" parent="." instance=ExtResource("2_2yqd1")]
+position = Vector2(384, 64)
+
+[node name="Fruit3" parent="." instance=ExtResource("2_2yqd1")]
+position = Vector2(640, 320)
+
+[node name="Fruit4" parent="." instance=ExtResource("2_2yqd1")]
+position = Vector2(640, 832)
+
+[node name="Fruit5" parent="." instance=ExtResource("2_2yqd1")]
+position = Vector2(1152, 640)
+
+[node name="Fruit6" parent="." instance=ExtResource("2_2yqd1")]
+position = Vector2(1280, 128)

@@ -19,6 +19,7 @@ color = Color(0.85098, 0.486275, 0, 1)
 [node name="Mouth" type="Area2D" parent="head"]
 position = Vector2(32, 32)
 collision_layer = 0
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="head/Mouth"]
 position = Vector2(16, 0)

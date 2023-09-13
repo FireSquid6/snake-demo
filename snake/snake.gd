@@ -63,10 +63,21 @@ func _on_mouth_area_entered(area):
 func _on_mouth_body_entered(body):
 	_mouth_collided(body)
 
+func eat():
+	var dir = _last_move_dir.rotated(PI)
+	var last_part = _parts[len(_parts) - 1]
+	var part = _part_scene.instantiate()
+	
+	add_child(part)
+	_parts.append(part)
+	
+	# bad hack
+	part.position = Vector2(-1000, -1000)
 
-func _mouth_collided(node: Node2D):  # Godot desperately needs type unions
-	print("I collieded with something")
-	
-	# check if it's a number fruit
-	
-	# if it isn't a number fruit, die
+
+func _mouth_collided(node: CollisionObject2D):  # Godot desperately needs type unions
+	if (node.get_collision_layer_value(2)):
+		node.queue_free()
+		eat()
+	else:
+		print("I died :(")
